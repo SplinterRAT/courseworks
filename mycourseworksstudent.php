@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,32 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<?php
-session_start();
-require "predis/autoload.php";
-Predis\Autoloader::register();
 
-try {
-    $redis = new Predis\Client();
-
-    // This connection is for a remote server
-    /*
-        $redis = new PredisClient(array(
-            "scheme" => "tcp",
-            "host" => "153.202.124.2",
-            "port" => 6379
-        ));
-    */
-}
-catch (Exception $e) {
-    die($e->getMessage());
-};
-//user-title-status
-$myworks = $redis->hgetall($user);
-if (isset($myworks)) {
-    print ("ok");
-}
-?>
 
 <body>
     <div id="fb-root"></div>
@@ -77,7 +52,7 @@ if (isset($myworks)) {
                 </ul>
                <ul class="nav navbar-nav navbar-right">
                     <li><img src="img/1.png" width="30px" class="img-circle" /></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo 'username'; ?></a>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['logged_user']['username']; ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="logout.php">Вихід</a></li>
                             <li><a href="#">Налаштування</a></li>
@@ -115,11 +90,16 @@ if (isset($myworks)) {
                                      
                                      
                                    <div class="mainTable">
-
+                                   <table id="myTable7"><th>#</th><th>Тема</th><th align="center">Статус</th>
+                                   <?php
+                                    include('controller.php');
+                                    mycourseworksstudent();
+                                    ?>
+                                    </table>
 
                                      </div>
                             </div>
-<hr>
+                        <hr>
               
                     </div>
 
@@ -170,9 +150,7 @@ if (isset($myworks)) {
     </script>
     <script>
         
-        function loadTable(){
-         $(".post-content .mainTable").append('<table id="myTable7"><tr class="header"><th>#</th><th>Тема</th><th align="center">Викладач</th><th align="center">Deadline</th><th align="center">Статус</th></tr><tr><td>1</td><td><a href="coursework.html">Тема 1</a></td><td></td><td></td><td></td></tr><tr><td>2</td><td><a href="coursework.html">Тема 2</a></td><td></td><td></td><td></td></tr></table>');   
-        }
+       
         function myFunction(idInput, idTable) {
             // Declare variables
             var input, filter, table, tr, td, i;

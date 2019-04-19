@@ -1,29 +1,4 @@
-<?php
-session_start();
-require "predis/autoload.php";
-Predis\Autoloader::register();
 
-try {
-    $redis = new Predis\Client();
-
-    // This connection is for a remote server
-    /*
-        $redis = new PredisClient(array(
-            "scheme" => "tcp",
-            "host" => "153.202.124.2",
-            "port" => 6379
-        ));
-    */
-}
-catch (Exception $e) {
-    die($e->getMessage());
-};
-$key = $_SESSION['logged_user']['faculty'];
-$table_data = $redis->hgetall($key);
-$titels = array_keys($table_data);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +52,7 @@ $titels = array_keys($table_data);
                 </ul>
                <ul class="nav navbar-nav navbar-right">
                     <li><img src="img/1.png" width="30px" class="img-circle" /></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">user</a>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['logged_user']['username']; ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="logout.php">Вихід</a></li>
                             <li><a href="#">Налаштування</a></li>
@@ -118,57 +93,8 @@ $titels = array_keys($table_data);
                                      <table id="myTable7"><th>#</th><th>Тема</th><th align="center">Факультет/спеціальність</th><th align="center">Викладач</th><th align="center">Р/Н</th><th align="center">Deadline</th><th align="center">Записатися</th>
                                         
                                          <?php
-                                         include('data.php');
-
-                                 // $user = $_SESSION['logged_user']['username'];
-                                  //$courseworktitle = $_SESSION['addcoursework']; 
-                              
-                                
-                                
-                                  print($user);
-                                         $a=0;
-                                         foreach ($titels as $i){
-                                       
-                                           
-                                             $a++;
-                                             $data = json_decode($table_data[$i], true);
-                                           $temp = $i;
-                                            //echo "<tr>";
-                                             echo "<tr><td id= \" ?$temp\">" . $a . "</td>";
-                                             
-                                             foreach ($data as $key=>$value){
-                                                
-                                                 //echo "<b>$value</b><br>";
-                                                 echo '<td>' . $value . "</td>";
-                                             }
-                                        
-                                         
-                                                echo '<td><form method="get">';
-                                            $check = $redis->hget($user,$temp);
-                                           
-                                             if (!isset($check )) {
-                                                echo ' <button type = "submit" formaction = "addcourseworkuser.php"class="btn btn-primary" name = "titleadd" value ="' . $temp .'">Записатися</buttom>';
-                                                
-                                            } else {
-                                                 echo '<button type = "submit"  class="btn btn-danger" formaction = "deletecourseworkuser.php" name = "titledel" value ="' . $temp .'">Виписатися</button>';
-                                                                                          
-                                                };
-
-                                             echo '</form></td>';
-                                             
-                                             echo "</tr>";
-                                         }
-                                         
-                                       //  $_SESSION['addcoursework'] = $_GET['submittitle'];
-                                       //  $_SESSION['deletecoursework'] = $_GET['deletetitle'];
-                                         
-                                      // $_SESSION['title'] = $_GET['title'];
-                                      print($titleadd);
-                                      print($titledel);
-                                        
-                                        //print($_SESSION['addcoursework']);
-
-
+                                         include('controller.php');
+                                         avaliablecourseworks();
  ?>
                                      </table>
 

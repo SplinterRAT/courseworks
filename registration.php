@@ -222,63 +222,8 @@
         new UISearch(document.getElementById('sb-search'));
     </script>
     <?php 
-    require "predis/autoload.php";
-    Predis\Autoloader::register();
-
-    try {
-        $redis = new Predis\Client();
-    
-        // This connection is for a remote server
-        /*
-            $redis = new PredisClient(array(
-                "scheme" => "tcp",
-                "host" => "153.202.124.2",
-                "port" => 6379
-            ));
-        */
-    }
-    catch (Exception $e) {
-        die($e->getMessage());
-    };
-        $username = $_GET['username1'];
-        $firstname = $_GET['firstname1'];
-        $lastname = $_GET['lastname1'];
-        $phone = $_GET['phone'];
-        $email = $_GET['email1'];
-        $password = $_GET['password1'];
-        $faculty = $_GET['radiobutton'];
-        //$speciality = $_GET['speciality'
-       // print_r($_GET);
-        //$testv = $redis->get ('test');
-       // print($testv);
-        if (isset($username) && isset($firstname) && isset($lastname) && isset($password) && isset($phone) && isset($email) && isset($faculty)) {
-
-
-            $data =  array(
-                'username' => $username,
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'password' => $password,
-                'phone' => $phone,
-                'email' => $email,
-                'faculty' => $faculty,
-            );
-            $redis -> hset('users', $username, json_encode($data));
-            echo ("<script>location.href='signin.php'</script>");
-
-
-            //$valueuserprofile = $username . "/" . $firstname . "/" . $lastname . "/" . $phone . "/" . $email . "/" . $password . "/" . $faculty . "/" . $speciality;
-        //$keyuserprofile = "profile:" . $username;
-        //$keyuserlogin = "login:" . $username;
-        //$valueuserlogin = $password;
-        //print($keyuserlogin);
-        //echo ('<p>');
-        //print($keyuserprofile);
-        //echo ('<p>');
-        //$redis->set($keyuserprofile, $valueuserprofile);
-        //$redis->set($keyuserlogin, $valueuserlogin);
-        //print($valueuserprofile);
-        };
+    include('controller.php');
+    registration($_GET['username1'], $_GET['firstname1'], $_GET['lastname1'], $_GET['password1'], $_GET['phone'], $_GET['email1'], $_GET['radiobutton'], $_GET['speciality']);
      ?>
     <!-- <script type="text/javascript">
         $.validator.setDefaults({

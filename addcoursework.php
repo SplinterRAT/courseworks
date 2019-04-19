@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +52,7 @@
                 </ul>
                <ul class="nav navbar-nav navbar-right">
                     <li><img src="img/1.png" width="30px" class="img-circle" /></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo 'username'; ?></a>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['logged_user']['username']; ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="logout.php">Вихід</a></li>
                             <li><a href="#">Налаштування</a></li>
@@ -209,46 +207,8 @@
         }
     </script> -->
     <?php
-
-    require "predis/autoload.php";
-    Predis\Autoloader::register();
-
-    try {
-        $redis = new Predis\Client();
-
-        // This connection is for a remote server
-        /*
-            $redis = new PredisClient(array(
-                "scheme" => "tcp",
-                "host" => "153.202.124.2",
-                "port" => 6379
-            ));
-        */
-    }
-    catch (Exception $e) {
-        die($e->getMessage());
-    };
-    $coursework_title = $_GET['title'];
-    $faculty = $_GET['radiobutton'];
-    $year_study = $_GET['year'];
-    $description = $_GET['description'];
-    $deadline = $_GET['deadline'];
-    if (isset($coursework_title) && isset($faculty) && isset($year_study) && isset($description) && isset($deadline)) {
-        print_r($_GET) ;
-
-        $data =  array(
-                'coursework_title'=>$coursework_title,
-                'faculty' => $faculty,
-                'year' => $year_study,
-                'description' => $description,
-                'deadline' => $deadline
-        );
-        $redis -> hset($faculty, $coursework_title, json_encode($data));
-
-
-    };
-
-
+    include('controller.php');
+    addcoursework($_GET['title'], $_GET['radiobutton'], $_GET['year'], $_GET['description'], $_GET['deadline']);
     ?>
 
 </body>

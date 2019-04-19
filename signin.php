@@ -1,45 +1,46 @@
 <?php
-session_start();
-require "predis/autoload.php";
-Predis\Autoloader::register();
+// session_start();
+// require "predis/autoload.php";
+// Predis\Autoloader::register();
 
 
-try {
-    $redis = new Predis\Client();
+// try {
+//     $redis = new Predis\Client();
 
-    // This connection is for a remote server
-    /*
-        $redis = new PredisClient(array(
-            "scheme" => "tcp",
-            "host" => "153.202.124.2",
-            "port" => 6379
-        ));
-    */
-}
-catch (Exception $e) {
-    die($e->getMessage());
-};
-$username = $_GET['username1'];
-$myusername = $username; 
-$password = $_GET['password1'];
-if ($redis -> hexists('users', $username) != 0) {
+//     // This connection is for a remote server
+//     /*
+//         $redis = new PredisClient(array(
+//             "scheme" => "tcp",
+//             "host" => "153.202.124.2",
+//             "port" => 6379
+//         ));
+//     */
+// }
+// catch (Exception $e) {
+//     die($e->getMessage());
+// };
+include('controller.php');
+signin($_GET['username1'], $_GET['password1']);
+// $username = $_GET['username1'];
+// $password = $_GET['password1'];
+// if ($redis -> hexists('users', $username) != 0) {
    
-    $data = $redis->hgetall('users');
-    $user = json_decode($redis->hget('users', $username), true);
-    $pass = $user['password'];
-    if($pass == $password){
-        echo "Успішно!!";
-         $_SESSION['logged_user'] = $user;
-         header('location:avaliablecourseworks.php');
-    }else {
-        echo "Невірний пароль";
-    }
-}else {
-    echo "Логін не вірний бо не існує";
-}
-//$user = $redis->hget('users', '$username');
-//$d = (json_decode($user, true));
-//echo ($d['password']);
+//     $data = $redis->hgetall('users');
+//     $user = json_decode($redis->hget('users', $username), true);
+//     $pass = $user['password'];
+//     if($pass == $password){
+//         echo "Успішно!!";
+//          $_SESSION['logged_user'] = $user;
+//          header('location:avaliablecourseworks.php');
+//     }else {
+//         echo "Невірний пароль";
+//     }
+// }else {
+//     echo "Логін не вірний бо не існує";
+// }
+// //$user = $redis->hget('users', '$username');
+// //$d = (json_decode($user, true));
+// //echo ($d['password']);
 ?>
 
 <!DOCTYPE html>

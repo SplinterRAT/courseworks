@@ -51,7 +51,7 @@
                 </ul>
                <ul class="nav navbar-nav navbar-right">
                     <li><img src="img/1.png" width="30px" class="img-circle" /></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo 'username'; ?></a>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['logged_user']['username']; ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="logout.php">Вихід</a></li>
                             <li><a href="#">Налаштування</a></li>
