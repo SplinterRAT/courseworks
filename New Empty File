@@ -1,0 +1,3 @@
+<?php
+$redis->hset($faculty, $courseworktitle, $username); 
+?>
