@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49a24ffb-4114-45c7-a718-a12bf8065c8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/avaliablecourseworks.php" beforeDir="false" afterPath="$PROJECT_DIR$/avaliablecourseworks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mycourseworksstudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/mycourseworksstudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mytest.php" beforeDir="false" afterPath="$PROJECT_DIR$/mytest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/signin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="22" />
+            <state relative-caret-position="600">
+              <caret line="101" column="47" lean-forward="true" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -176,6 +168,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -207,16 +200,15 @@
       <workItem from="1555753148454" duration="25117000" />
       <workItem from="1555833348048" duration="21964000" />
       <workItem from="1555875809381" duration="20000" />
-      <workItem from="1555939560266" duration="10717000" />
+      <workItem from="1555939560266" duration="11418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57818000" />
+    <option name="totallyTimeSpent" value="58519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1758" height="1175" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28245613" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -344,8 +336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="22" />
+        <state relative-caret-position="600">
+          <caret line="101" column="47" lean-forward="true" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
         </state>
       </provider>
     </entry>
