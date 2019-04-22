@@ -20,11 +20,11 @@
 //     die($e->getMessage());
 // };
 include('controller.php');
-signin($_GET['username1'], $_GET['password1']);
+signin(@$_GET['username1'], @$_GET['password1']);
 // $username = $_GET['username1'];
 // $password = $_GET['password1'];
 // if ($redis -> hexists('users', $username) != 0) {
-   
+
 //     $data = $redis->hgetall('users');
 //     $user = json_decode($redis->hget('users', $username), true);
 //     $pass = $user['password'];
@@ -82,7 +82,7 @@ signin($_GET['username1'], $_GET['password1']);
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <img src="img/logo.png" height="40px"> </div>
                 <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.php">Головна</a></li>
+                    <li class="active"><a href="signin.php">Головна</a></li>
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Курсові</a>
                         <ul class="dropdown-menu">
                             <li><a href="avaliablecourseworks.php">Доступні</a></li>

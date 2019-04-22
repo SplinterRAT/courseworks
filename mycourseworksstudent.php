@@ -1,4 +1,6 @@
-
+<?php
+include('controller.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +94,7 @@
                                    <div class="mainTable">
                                    <table id="myTable7"><th>#</th><th>Тема</th><th align="center">Статус</th>
                                    <?php
-                                    include('controller.php');
+
                                     mycourseworksstudent();
                                     ?>
                                     </table>

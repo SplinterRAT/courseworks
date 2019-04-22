@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require "predis/autoload.php";
     Predis\Autoloader::register();

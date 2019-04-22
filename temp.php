@@ -1,8 +1,7 @@
 
 <?php
 
-use Predis\Autoloader;
-use Predis\Client;
+
 
 require "predis/autoload.php";
 Predis\Autoloader::register();

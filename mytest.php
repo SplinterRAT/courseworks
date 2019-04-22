@@ -1,8 +1,7 @@
 <?php
 session_start();
-
-$d = $_SESSION['logged_user'];
-echo($d['faculty']);
+//$d = $_SESSION['logged_user'];
+//print_r($d);
 
 //$key = 'htests';
 //$redis->hset($key, 'name', 'coursework');
@@ -10,8 +9,6 @@ echo($d['faculty']);
 //$redis->hset($key, 'teacher_name', 'Ivanov Ivan');
 //$redis->hset($key, 'year_of_study', '2');
 
-
-include('temp.php');
 require "predis/autoload.php";
 Predis\Autoloader::register();
 
@@ -28,15 +25,61 @@ try {
     */
 } catch (Exception $e) {
     die($e->getMessage());
-}
-echo '<table id="myTable7"><tr class="header"><th>#</th><th>Тема</th><th align="center">Факультет/спеціальність</th><th align="center">Викладач</th><th align="center">Р/Н</th><th align="center">Deadline</th><th align="center">Записатися</th>'
-// тут переменніе присваивешь, которіе с базі получаешь
-                                                $arr = $redis->hgetall('FI');
-                                             for ($i = 0, $i < count($arr), $i++) {
-                                                 $coursework = explode("/", $arr[i]);
-                                                 echo '<tr>';
-                                                 for ($a = 0; $a < count($coursework); $a++) {
-                                                     echo '<td>' . $coursework[$a] . '</td>';
-                                                 };
-                                                 echo '<tr>';
-                                             };
+};
+//$data = $redis->hgetall('user1');
+//$pass = $data['password'];
+$d = $redis-> hkeys('FI');
+echo '<br>';
+$a = 0;
+foreach ($d as$i){
+  $p = $redis -> hgetall($i);
+ // print_r($p);
+    $a++;
+  echo '<br>';
+    echo "<tr><td id= \" ?$i\">" . $a . "</td>";
+    foreach ($p as $key=>$value){
+        echo '<td>' . $value . "</td>";
+    }
+    echo '<td><form method="get">';
+    $check = $redis->hget($user,$temp);
+
+    if (!isset($check )) {
+        echo ' <button type = "submit" formaction = "addcourseworkuser.php"class="btn btn-primary" name = "titleadd" value ="' . $temp .'">Записатися</buttom>';
+    } else {
+        echo '<button type = "submit"  class="btn btn-danger" formaction = "deletecourseworkuser.php" name = "titledel" value ="' . $temp .'">Виписатися</button>';
+    };
+    echo '</form></td>';
+    echo "</tr>";
+
+};
+
+function avaliablecourseworks () {
+    $user = @$_SESSION['logged_user']['username'];
+    $key = @$_SESSION['logged_user']['faculty'];
+    global $redis;
+    $d = $redis-> hkeys($key);
+    echo '<br>';
+    $a = 0;
+    foreach ($d as$i){
+        $p = $redis -> hgetall($i);
+        // print_r($p);
+        $a++;
+        echo '<br>';
+        echo "<tr><td id= \" ?$i\">" . $a . "</td>";
+        foreach ($p as $key=>$value){
+            echo '<td>' . $value . "</td>";
+        }
+        echo '<td><form method="get">';
+        $check = $redis->hget($user,$temp);
+
+        if (!isset($check )) {
+            echo ' <button type = "submit" formaction = "addcourseworkuser.php"class="btn btn-primary" name = "titleadd" value ="' . $temp .'">Записатися</buttom>';
+        } else {
+            echo '<button type = "submit"  class="btn btn-danger" formaction = "deletecourseworkuser.php" name = "titledel" value ="' . $temp .'">Виписатися</button>';
+        };
+        echo '</form></td>';
+        echo "</tr>";
+
+    };
+
+};

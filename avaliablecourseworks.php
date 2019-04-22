@@ -1,4 +1,6 @@
-
+<?php
+include('controller.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +40,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <img src="img/logo.png" height="40px"> </div>
             <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.php">Головна</a></li>
+                    <li class="active"><a href="signin.php">Головна</a></li>
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Курсові</a>
                         <ul class="dropdown-menu">
                             <li><a href="avaliablecourseworks.php">Доступні</a></li>
@@ -91,11 +93,10 @@
 
                                    <div class="mainTable">
                                      <table id="myTable7"><th>#</th><th>Тема</th><th align="center">Факультет/спеціальність</th><th align="center">Викладач</th><th align="center">Р/Н</th><th align="center">Deadline</th><th align="center">Записатися</th>
-                                        
                                          <?php
-                                         include('controller.php');
                                          avaliablecourseworks();
- ?>
+                                         ?>
+
                                      </table>
 
                                    </div>
