@@ -1,5 +1,7 @@
 <?php
-include ('data.php');
+include('controller.php');
+$access = @$_SESSION['logged_user']['access_type'];
+$data = $_SESSION['logged_user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,10 +86,10 @@ include ('data.php');
                     <hr>
 
                     
-                            <strong>E-mail</strong> <?php echo $email; ?>
+                            <strong>E-mail</strong> <?php echo $data['email']; ?>
                            
                             <hr>
-                            <strong>Телефон:</strong> <?php echo $phone; ?>
+                            <strong>Телефон:</strong> <?php echo @$data['phone']; ?>
                            
                          
                             <hr>
@@ -124,16 +126,16 @@ include ('data.php');
                         <div align="center"> <img class="thumbnail img-responsive" src="img/profile.jpeg" width="300px" height="300px"> </div>
                         <div class="media-body">
                             <hr>
-                            <strong>Ім′я :</strong> <?php echo $firstname; ?>
+                            <strong>Ім′я :</strong> <?php echo $data['firstname']; ?>
                            
                             <hr>
-                            <strong>Прізвище :</strong> <?php echo $lastname; ?>
+                            <strong>Прізвище :</strong> <?php echo $data['lastname']; ?>
                            
                             <hr>
-                            <strong>Факультет :</strong> <?php echo $faculty; ?>
+                            <strong>Факультет :</strong> <?php echo $data['faculty']; ?>
                            
                             <hr>
-                            <strong>Курс :</strong> 
+                            <strong>Курс :</strong> <?php echo @$data['year']; ?>
                          
                             <hr>
                         </div>

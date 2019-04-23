@@ -1,3 +1,7 @@
+<?php
+include('controller.php');
+$access = @$_SESSION['logged_user']['access_type'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +46,11 @@
                         <ul class="dropdown-menu">
                             <li><a href="avaliablecourseworks.php">Доступні</a></li>
                             <li><a href="mycourseworksstudent.php">Мої курсові</a></li>
-                            <li><a href="addcoursework.php">Запропонувати тему</a></li>
+                            <?php
+                            if ($access == 1 && $access== 2){
+                                echo '<li><a href="addcoursework.php">Запропонувати тему</a></li>)';
+                            };
+                            ?>
                         </ul>
                     </li>
                     <li><a href="teachers.php">Викладачі</a></li>

@@ -1,5 +1,6 @@
 <?php
 include('controller.php');
+$access = @$_SESSION['logged_user']['access_type'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +46,11 @@ include('controller.php');
                         <ul class="dropdown-menu">
                             <li><a href="avaliablecourseworks.php">Доступні</a></li>
                             <li><a href="mycourseworksstudent.php">Мої курсові</a></li>
-                            <li><a href="addcoursework.php">Запропонувати тему</a></li>
+                            <?php
+                            if ($access == 1 && $access== 2){
+                                echo '<li><a href="addcoursework.php">Запропонувати тему</a></li>)';
+                            };
+                            ?>
                         </ul>
                     </li>
                     <li><a href="teachers.php">Викладачі</a></li>
@@ -54,7 +59,7 @@ include('controller.php');
                 </ul>
                <ul class="nav navbar-nav navbar-right">
                     <li><img src="img/1.png" width="30px" class="img-circle" /></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['logged_user']['username']; ?></a>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo  @$_SESSION['logged_user']['username']; ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="logout.php">Вихід</a></li>
                             <li><a href="#">Налаштування</a></li>

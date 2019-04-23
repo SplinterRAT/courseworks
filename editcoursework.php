@@ -1,3 +1,7 @@
+<?php
+include ('data.php');
+$access = @$_SESSION['logged_user']['access_type'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -18,4 +18,7 @@ require "predis/autoload.php";
     catch (Exception $e) {
         die($e->getMessage());
     };
-?>
+    if (!isset($_SESSION['logged_user'])){
+
+    };
+    ?>

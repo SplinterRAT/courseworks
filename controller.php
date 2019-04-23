@@ -10,7 +10,7 @@ function signin($username, $password) {
         if($pass == $password){
             echo "Успішно!!";
              $_SESSION['logged_user'] = $data;
-            // header('location:avaliablecourseworks.php');
+            header('location:avaliablecourseworks.php');
         }else {
             echo "Невірний пароль";
         }
